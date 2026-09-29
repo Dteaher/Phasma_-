@@ -133,7 +133,7 @@ void main() {
     expect(box.get('player'), isNotNull);
     expect(find.text('Персик'), findsWidgets);
     expect(tester.takeException(), isNull);
-    expect(find.byTooltip('Для взрослого'), findsNothing);
+    expect(find.byTooltip('Для взрослого'), findsOneWidget);
     await tester.ensureVisible(find.text('Продолжить историю'));
     await tester.tap(find.text('Продолжить историю'));
     await tester.pump();
@@ -406,3 +406,4 @@ void main() {
     await tester.pumpWidget(const SizedBox());
   });
 }
+

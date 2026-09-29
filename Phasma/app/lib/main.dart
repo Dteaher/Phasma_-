@@ -20,6 +20,7 @@ part 'journey.dart';
 part 'playground.dart';
 part 'friends_house.dart';
 part 'care_play.dart';
+part 'adult.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -47,7 +48,14 @@ class TailtownApp extends StatelessWidget {
     builder: (context, child) => Consumer(
       builder: (context, ref, _) => MotionSettings(
         enabled: ref.watch(storeProvider).game.s['animations'] != false,
-        child: child!,
+        child: MediaQuery(
+          data: MediaQuery.of(context).copyWith(
+            disableAnimations:
+                MediaQuery.disableAnimationsOf(context) ||
+                ref.watch(storeProvider).game.s['animations'] == false,
+          ),
+          child: child!,
+        ),
       ),
     ),
     locale: const Locale('ru'),
@@ -328,6 +336,7 @@ class _GameRootState extends ConsumerState<GameRoot> {
     if (!game.started) {
       return Scaffold(
         extendBodyBehindAppBar: true,
+        appBar: AppBar(actions: [adultEntry(context)]),
         body: GameBackdrop(
           scene: onboardingRoom ? 'room' : 'city',
           shade: .15,
@@ -448,6 +457,7 @@ class _GameRootState extends ConsumerState<GameRoot> {
               : HeaderPill(state.demo ? 'Демо • $heading' : heading),
           actions: screen.isEmpty && (tab == 0 || tab == 1)
               ? [
+                  adultEntry(context),
                   Padding(
                     padding: const EdgeInsets.only(right: 10),
                     child: Center(
@@ -487,7 +497,7 @@ class _GameRootState extends ConsumerState<GameRoot> {
                     ),
                   ),
                 ]
-              : null,
+              : [adultEntry(context)],
         ),
         body: GameBackdrop(
           scene: tab == 1 ? 'city' : 'room',

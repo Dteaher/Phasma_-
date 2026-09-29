@@ -1,7 +1,7 @@
 name: tailtown
 description: Город Хвостиков — мечты и первые финансовые решения.
 publish_to: none
-version: 0.16.0+16
+version: 0.17.0+17
 environment:
   sdk: '>=3.8.0 <4.0.0'
 dependencies:

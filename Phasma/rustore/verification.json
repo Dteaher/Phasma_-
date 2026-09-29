@@ -1,0 +1,9 @@
+{
+  "version": "0.17.0",
+  "versionCode": 17,
+  "apk": "../release/Tailtown-0.17.apk",
+  "sha256": "2add2c06c86ba69e0118ad3f3722a473720bf8b68c5cb81e6233ba9d11d1b2eb",
+  "signatureVerified": true,
+  "automatedTestsPassed": 35,
+  "physicalTestNewBuild": false
+}
