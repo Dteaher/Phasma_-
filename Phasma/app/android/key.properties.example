@@ -1,0 +1,4 @@
+storePassword=YOUR_PRIVATE_PASSWORD
+keyPassword=YOUR_PRIVATE_PASSWORD
+keyAlias=tailtown
+storeFile=C:/private/tailtown-release.jks
